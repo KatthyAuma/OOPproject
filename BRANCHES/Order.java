@@ -1,29 +1,20 @@
-package com.example.BRANCHES;
+package shared;
+import java.io.Serializable;
+import java.util.List;
 
-public class Order {
-    private String customerName, contactInfo, drinkName, branchName, paymentMethod;
-    private int quantity;
-    private double orderValue;
-    private String orderTime;
+public class Order implements Serializable {
+    private String customerName;
+    private String branchName;
+    private List<Product> products;
 
-    public Order(String customerName, String contactInfo, String drinkName, int quantity, String branchName, String paymentMethod, double orderValue, String orderTime) {
+    public Order(String customerName, String branchName, List<Product> products) {
         this.customerName = customerName;
-        this.contactInfo = contactInfo;
-        this.drinkName = drinkName;
-        this.quantity = quantity;
         this.branchName = branchName;
-        this.paymentMethod = paymentMethod;
-        this.orderValue = orderValue;
-        this.orderTime = orderTime;
+        this.products = products;
     }
 
-    // Getters for TableView
+    // Getters
     public String getCustomerName() { return customerName; }
-    public String getContactInfo() { return contactInfo; }
-    public String getDrinkName() { return drinkName; }
-    public int getQuantity() { return quantity; }
     public String getBranchName() { return branchName; }
-    public String getPaymentMethod() { return paymentMethod; }
-    public double getOrderValue() { return orderValue; }
-    public String getOrderTime() { return orderTime; }
+    public List<Product> getProducts() { return products; }
 }
